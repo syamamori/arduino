@@ -1,60 +1,38 @@
+#include <Encoder.h>
 #include <MsTimer2.h>
  
 // A相ピン割り当て
-#define ENC_A 12
+#define ENC1_A 18
 // B相ピン割り当て
-#define ENC_B 13
+#define ENC1_B 19
  
-// 前回値（Bit1:A相、Bit0:B相）
-volatile int oldEnc;
- 
-// エンコーダ値
-volatile int encValue;
- 
+// A相ピン割り当て
+#define ENC2_A 20
+// B相ピン割り当て
+#define ENC2_B 21
+
+Encoder myEnc1(ENC1_A, ENC1_B);
+Encoder myEnc2(ENC2_A, ENC2_B);
+
 void doEncoderCounter(void){
-  int newEnc = (digitalRead(ENC_A)?0:2) | (digitalRead(ENC_B)?0:1);
-   
-  if (0) {
-    // do nothing
-  } else if (0 == oldEnc) {
-    if (2 == newEnc) { // up
-      encValue++;
-    } else if (1 == newEnc) { // down
-      encValue--;
-    }
-  } else if (1 == oldEnc) {
-    if (0 == newEnc) { // up
-      encValue++;
-    } else if (3 == newEnc) { // down
-      encValue--;
-    }
-  } else if (2 == oldEnc) {
-    if (3 == newEnc) { // up
-      encValue++;
-    } else if (0 == newEnc) { // down
-      encValue--;
-    }
-  } else if (3 == oldEnc) {
-    if (1 == newEnc) { // up
-      encValue++;
-    } else if (2 == newEnc) { // down
-      encValue--;
-    }
-  }    
-  oldEnc = newEnc;
+  long encA,encB;
+  encA = myEnc1.read();
+  encB = myEnc2.read();
+  Serial.print("encA");
+  Serial.print(encA);
+  Serial.print("encB");
+  Serial.print(encB);
+  myEnc1.write(0);
+  myEnc2.write(0);
 }
- 
+
 void setup() {
-  pinMode(ENC_A, INPUT);
-  pinMode(ENC_B, INPUT);
-  encValue = 0;
-  oldEnc = (digitalRead(ENC_A)?0:2) | (digitalRead(ENC_B)?0:1);
-  MsTimer2::set(1, doEncoderCounter);
+  myEnc1.write(0);
+  myEnc2.write(0);
+  MsTimer2::set(2, doEncoderCounter);
   MsTimer2::start();
   Serial.begin(115200);
 }
  
 void loop() {
-  Serial.println(encValue,DEC);
-  delay(1000);
 }
