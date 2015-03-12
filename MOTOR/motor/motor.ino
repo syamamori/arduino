@@ -11,25 +11,25 @@ void setup() {
 }
 
 void loop(){
-  // モーターA: フルスピード正転
-  digitalWrite(12, HIGH);
-  digitalWrite(9, LOW);
-  analogWrite(3, 255);
+//  // モーターA: フルスピード正転
+//  digitalWrite(12, HIGH);
+//  digitalWrite(9, LOW);
+//  analogWrite(3, 255);
   // モーターB: フルスピード正転
   digitalWrite(13, HIGH);
   digitalWrite(8, LOW);
   analogWrite(11, 255);
   // 2秒間上記設定で回転
-  delay(2000);
-
-  // モーターA: フルスピード逆転
-  digitalWrite(12, LOW);
-  digitalWrite(9, LOW);
-  analogWrite(3, 255);
-  // モーターB: フルスピード逆転
-  digitalWrite(13, LOW);
-  digitalWrite(8, LOW);
-  analogWrite(11, 255);
-  // 2秒間上記設定で回転
+//  delay(2000);
+//
+//  // モーターA: フルスピード逆転
+//  digitalWrite(12, LOW);
+//  digitalWrite(9, LOW);
+//  analogWrite(3, 255);
+//  // モーターB: フルスピード逆転
+//  digitalWrite(13, LOW);
+//  digitalWrite(8, LOW);
+//  analogWrite(11, 255);
+//  // 2秒間上記設定で回転
   delay(2000);
 }
