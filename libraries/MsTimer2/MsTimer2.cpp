@@ -39,7 +39,7 @@ volatile unsigned int MsTimer2::tcnt2;
 void MsTimer2::set(unsigned long ms, void (*f)()) {
 	float prescaler = 0.0;
 	
-#if defined (__AVR_ATmega168__) || defined (__AVR_ATmega48__) || defined (__AVR_ATmega88__) || defined (__AVR_ATmega328P__) || (__AVR_ATmega1280__)
+#if defined (__AVR_ATmega168__) || defined (__AVR_ATmega48__) || defined (__AVR_ATmega88__) || defined (__AVR_ATmega328P__) || (__AVR_ATmega1280__) || (__AVR_ATmega2560__)
 	TIMSK2 &= ~(1<<TOIE2);
 	TCCR2A &= ~((1<<WGM21) | (1<<WGM20));
 	TCCR2B &= ~(1<<WGM22);
@@ -111,7 +111,7 @@ void MsTimer2::set(unsigned long ms, void (*f)()) {
 void MsTimer2::start() {
 	count = 0;
 	overflowing = 0;
-#if defined (__AVR_ATmega168__) || defined (__AVR_ATmega48__) || defined (__AVR_ATmega88__) || defined (__AVR_ATmega328P__) || (__AVR_ATmega1280__)
+#if defined (__AVR_ATmega168__) || defined (__AVR_ATmega48__) || defined (__AVR_ATmega88__) || defined (__AVR_ATmega328P__) || (__AVR_ATmega1280__)|| (__AVR_ATmega2560__)
 	TCNT2 = tcnt2;
 	TIMSK2 |= (1<<TOIE2);
 #elif defined (__AVR_ATmega128__)
@@ -124,7 +124,7 @@ void MsTimer2::start() {
 }
 
 void MsTimer2::stop() {
-#if defined (__AVR_ATmega168__) || defined (__AVR_ATmega48__) || defined (__AVR_ATmega88__) || defined (__AVR_ATmega328P__) || (__AVR_ATmega1280__)
+#if defined (__AVR_ATmega168__) || defined (__AVR_ATmega48__) || defined (__AVR_ATmega88__) || defined (__AVR_ATmega328P__) || (__AVR_ATmega1280__)|| (__AVR_ATmega2560__)
 	TIMSK2 &= ~(1<<TOIE2);
 #elif defined (__AVR_ATmega128__)
 	TIMSK &= ~(1<<TOIE2);
@@ -145,7 +145,7 @@ void MsTimer2::_overflow() {
 }
 
 ISR(TIMER2_OVF_vect) {
-#if defined (__AVR_ATmega168__) || defined (__AVR_ATmega48__) || defined (__AVR_ATmega88__) || defined (__AVR_ATmega328P__) || (__AVR_ATmega1280__)
+#if defined (__AVR_ATmega168__) || defined (__AVR_ATmega48__) || defined (__AVR_ATmega88__) || defined (__AVR_ATmega328P__) || (__AVR_ATmega1280__)|| (__AVR_ATmega2560__)
 	TCNT2 = MsTimer2::tcnt2;
 #elif defined (__AVR_ATmega128__)
 	TCNT2 = MsTimer2::tcnt2;

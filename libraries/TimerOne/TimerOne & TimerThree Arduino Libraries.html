@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0049)https://www.pjrc.com/teensy/td_libs_TimerOne.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>TimerOne &amp; TimerThree Arduino Libraries</title>
+<!--<base target="_top">--><base href="." target="_top">
+<link rel="shortcut icon" href="https://www.pjrc.com/favicon.ico">
+<link rel="icon" href="https://www.pjrc.com/favicon.ico">
+<link rel="stylesheet" href="./TimerOne & TimerThree Arduino Libraries_files/style.css" type="text/css">
+<meta name="MSSmartTagsPreventParsing" content="TRUE">
+<link rel="stylesheet" href="./TimerOne & TimerThree Arduino Libraries_files/td_libs.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000D0" vlink="#202080">
+<!--nav begin-->
+<!--htdig_noindex-->
+<table width="100%" cellspacing="2" cellpadding="0">
+<tbody><tr><td align="left" rowspan="2">
+<table cellspacing="0" cellpadding="0" width="312">
+<tbody><tr><td align="right">
+<a href="https://www.pjrc.com/teensy/td_libs_TimerOne.html#navend"><img src="./TimerOne & TimerThree Arduino Libraries_files/1x1.gif" width="1" height="10" alt="skip navigational links" border="0" hspace="0" vspace="0"></a><a href="https://www.pjrc.com/"><img src="./TimerOne & TimerThree Arduino Libraries_files/logo.gif" alt="PJRC" width="276" height="31" border="0"></a></td></tr>
+</tbody></table>
+</td><td align="right" valign="top">
+</td></tr>
+<tr><td align="right" valign="bottom">
+<small>
+<a href="https://www.pjrc.com/cgi-bin/store/step1">Shopping&nbsp;Cart</a>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="" align="middle">
+<a href="https://www.pjrc.com/cgi-bin/store/step2">Checkout</a>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="" align="middle">
+<a href="https://www.pjrc.com/cgi-bin/store/shipcost">Shipping&nbsp;Cost</a>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="" align="middle">
+<a href="https://www.pjrc.com/cgi-bin/archive/summary">Download&nbsp;Website</a>
+</small>
+</td></tr></tbody></table>
+<table cellspacing="0" cellpadding="6" border="0" width="100%">
+<tbody><tr bgcolor="#D0E0FF">
+<td align="center"><a href="https://www.pjrc.com/">Home</a></td>
+<td align="center"><a href="https://www.pjrc.com/tech/mp3/">MP3 Player</a></td>
+<td align="center"><a href="https://www.pjrc.com/tech/8051/">8051 Tools</a></td>
+<td align="center"><a href="https://www.pjrc.com/tech/">All Projects</a></td>
+<td align="center"><a href="https://www.pjrc.com/store/">PJRC Store</a></td>
+<td align="center"><a href="https://www.pjrc.com/map.html">Site Map</a></td>
+</tr></tbody></table>
+<table cellspacing="0" cellpadding="2" width="100%">
+<tbody><tr bgcolor="#F0F0F0"><td align="left">
+<small>You are here:
+<a href="https://www.pjrc.com/teensy/">Teensy</a>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/b.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/teensyduino.html">Teensyduino</a>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/b.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs.html">Libraries</a>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/b.gif" width="10" height="10" alt="">
+<span style="background-color: #B0E4A8">TimerOne</span>
+</small></td><td align="right">
+<!-- <small><a href="/search/">Search PJRC</a></small>
+ -->
+</td></tr></tbody></table>
+<p>
+</p><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td width="172" valign="top">
+<table width="172" border="0" cellspacing="0" cellpadding="6">
+<tbody><tr><td bgcolor="#D0E0FF" align="center">
+<big><b>PJRC Store</b></big>
+</td></tr>
+<tr><td bgcolor="#F0F0F0">
+<small>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="" align="middle">
+<a href="https://www.pjrc.com/store/teensy31.html">Teensy 3.1, $19.80</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="" align="middle">
+<a href="https://www.pjrc.com/store/teensylc.html">Teensy LC, $11.65</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="" align="middle">
+<a href="https://www.pjrc.com/store/teensy.html">Teensy 2.0, $16.00</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="" align="middle">
+<a href="https://www.pjrc.com/store/teensypp.html">Teensy++ 2.0, $24.00</a><br>
+</small></td></tr>
+<tr><td height="15"></td></tr>
+<tr><td bgcolor="#D0E0FF" align="center">
+<big><b>Teensy</b></big>
+</td></tr>
+<tr><td bgcolor="#F0F0F0">
+<small>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/index.html">Main Page</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/teensy31.html">Teensy 3.1</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/teensyLC.html">Teensy-LC</a><br>
+<a href="https://www.pjrc.com/teensy/first_use.html"><img src="./TimerOne & TimerThree Arduino Libraries_files/c.gif" width="10" height="10" alt="" border="0">
+<b>Getting Started</b></a><br>
+<a href="https://www.pjrc.com/teensy/pins.html"><img src="./TimerOne & TimerThree Arduino Libraries_files/c.gif" width="10" height="10" alt="" border="0">
+<b>How-To Tips</b></a><br>
+<a href="https://www.pjrc.com/teensy/usb_debug_only.html"><img src="./TimerOne & TimerThree Arduino Libraries_files/c.gif" width="10" height="10" alt="" border="0">
+<b>Code Library</b></a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/projects.html">Projects</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/b.gif" width="10" height="10" alt="">
+<b>Teensyduino</b><br>
+</small>
+<div style="padding-left: 1.2em">
+<small>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/teensyduino.html">Main</a><br>
+<a href="https://www.pjrc.com/teensy/tutorial.html"><img src="./TimerOne & TimerThree Arduino Libraries_files/c.gif" width="10" height="10" alt="" border="0">
+<b>Tutorial</b></a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_download.html">Download+Install</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_usage.html">Basic Usage</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_digital.html">Digital I/O</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_pulse.html">PWM &amp; Tone</a><br>
+<a href="https://www.pjrc.com/teensy/td_timing.html"><img src="./TimerOne & TimerThree Arduino Libraries_files/c.gif" width="10" height="10" alt="" border="0">
+<b>Timing</b></a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_serial.html">USB Serial</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_keyboard.html">USB Keyboard</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_mouse.html">USB Mouse</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_joystick.html">USB Joystick</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_midi.html">USB MIDI</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_flightsim.html">USB Flight Sim</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_uart.html">UART Serial</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/b.gif" width="10" height="10" alt="">
+<b>Libraries</b><br>
+</small>
+<div style="padding-left: 1.2em">
+<small>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs.html">Main List</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_GLCD.html">GLCD</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_LiquidCrystal.html">LiquidCrystal</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_OctoWS2811.html">OctoWS2811</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_FastSPI_LED.html">FastSPI_LED</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Matrix.html">Matrix/Sprite</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_LedDisplay.html">LedDisplay</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_LedControl.html">LedControl</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_DogLcd.html">DogLcd</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_ST7565.html">ST7565</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_AltSoftSerial.html">AltSoftSerial</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_NewSoftSerial.html">NewSoftSerial</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_SoftwareSerial.html">SoftwareSerial</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_MIDI.html">MIDI</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_PS2Keyboard.html">PS2Keyboard</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_DmxSimple.html">DmxSimple</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Firmata.html">Firmata</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Wire.html">Wire</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_SPI.html">SPI</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_OneWire.html">OneWire</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_XBee.html">XBee</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_VirtualWire.html">VirtualWire</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_x10.html">X10</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_IRremote.html">IRremote</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_TinyGPS.html">TinyGPS</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_USBHostShield.html">USBHostShield</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Ethernet.html">Ethernet</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Bounce.html">Bounce</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Keypad.html">Keypad</a><br>
+<a href="https://www.pjrc.com/teensy/td_libs_Audio.html"><img src="./TimerOne & TimerThree Arduino Libraries_files/c.gif" width="10" height="10" alt="" border="0">
+<b>Audio</b></a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Encoder.html">Encoder</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Ping.html">Ping</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_CapacitiveSensor.html">CapacitiveSensor</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_FreqCount.html">FreqCount</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_FreqMeasure.html">FreqMeasure</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Servo.html">Servo</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_PulsePosition.html">PulsePosition</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Stepper.html">Stepper</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_AccelStepper.html">AccelStepper</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_FrequencyTimer2.html">FrequencyTimer2</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Tlc5940.html">Tlc5940</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_SoftPWM.html">SoftPWM</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_ShiftPWM.html">ShiftPWM</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Time.html">Time</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_TimeAlarms.html">TimeAlarms</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_DS1307RTC.html">DS1307RTC</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_Metro.html">Metro</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/b.gif" width="10" height="10" alt="selected">
+<span style="background-color: #B0E4A8">TimerOne</span><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_MsTimer2.html">MsTimer2</a><br>
+<img src="./TimerOne & TimerThree Arduino Libraries_files/a.gif" width="10" height="10" alt="">
+<a href="https://www.pjrc.com/teensy/td_libs_EEPROM.html">EEPROM</a><br>
+</small>
+</div>
+<small>
+</small>
+</div>
+<small>
+<a href="https://www.pjrc.com/teensy/pinout.html"><img src="./TimerOne & TimerThree Arduino Libraries_files/c.gif" width="10" height="10" alt="" border="0">
+<b>Reference</b></a><br>
+</small></td></tr>
+<tr><td height="60"></td></tr>
+</tbody></table><br>
+<a name="navend"> </a>
+</td>
+<td width="18"></td>
+<td valign="top">
+<!--/htdig_noindex-->
+<!--nav end-->
+
+
+<h1>TimerOne &amp; TimerThree Libraries</h1>
+
+TimerOne and TimerThree let you use the built-in 16 bit timers.
+<p>
+<b>Download</b>: <a href="https://www.pjrc.com/teensy/arduino_libraries/TimerOne.zip">TimerOne.zip</a><br>
+<b>Download</b>: <a href="https://www.pjrc.com/teensy/arduino_libraries/TimerThree.zip">TimerThree.zip</a>
+</p><p>
+
+</p><h2>Hardware Requirements</h2>
+
+These libraries use Timer1 and Timer3.
+<p>
+Each timer controls PWM pins.  While uses these libraries, analogWrite() to those
+pins will not work normally, but you can use the library pwm() function.
+</p><p>
+</p><table align="center" cellspacing="4">
+<tbody><tr class="top"><th>Board</th><th>TimerOne<br>PWM Pins</th><th>TimerThree<br>PWM Pins</th></tr>
+<tr class="odd"><td>Teensy 3.1</td><td align="center">3, 4</td><td align="center">25, 32</td></tr>
+<tr class="odd"><td>Teensy 3.0</td><td align="center">3, 4</td><td align="center"></td></tr>
+<tr class="odd"><td>Teensy 2.0</td><td align="center">4, 14, 15</td><td align="center">9</td></tr>
+<tr class="odd"><td>Teensy++ 2.0</td><td align="center">25, 26, 27</td><td align="center">14, 15, 16</td></tr>
+<tr class="odd"><td>Arduino Uno</td><td align="center">9, 10</td><td align="center"></td></tr>
+<tr class="odd"><td>Arduino Leonardo</td><td align="center">9, 10, 11</td><td align="center">5</td></tr>
+<tr class="odd"><td><span class="goog_qs-tidbit goog_qs-tidbit-0">Arduino Mega</span></td><td align="center"><span class="goog_qs-tidbit goog_qs-tidbit-0">11, 12, 13</span></td><td align="center"><span class="goog_qs-tidbit goog_qs-tidbit-0">2, 3, 5</span></td></tr>
+<tr class="odd"><td><span class="goog_qs-tidbit goog_qs-tidbit-0">Wiring-</span>S</td><td align="center">4, 5</td><td align="center"></td></tr>
+<tr class="odd"><td>Sanguino</td><td align="center">12, 13</td><td align="center"></td></tr>
+</tbody></table>
+
+<h2>Basic Usage</h2>
+
+<span class="goog_qs-tidbit goog_qs-tidbit-1">The timer is configured to repetitively measure a period of time, in microseconds.</span>  At the end of
+each period, an interrupt function can be run.  The PWM pins can also be configured to switch
+during a portion of the period.
+<p>
+If using TimerThree, replace "Timer1" with "Timer3".
+
+</p><h3>Configuration</h3>
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">initialize</span>(microseconds);
+<p class="desc">
+<span class="goog_qs-tidbit goog_qs-tidbit-2">Begin using the timer.  This function must be called first.  "microseconds" is the period
+of time the timer takes.
+</span></p>
+
+<span style="color: #CC6600;"><span class="goog_qs-tidbit goog_qs-tidbit-2">Timer1</span></span><span class="goog_qs-tidbit goog_qs-tidbit-2">.</span><span style="color: #CC6600;">setPeriod</span>(microseconds);
+<p class="desc">
+Set a new period after the library is already initialized.
+</p>
+
+<h3>Run Control</h3>
+
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">start</span>();
+<p class="desc">
+Start the timer, beginning a new period.
+</p>
+
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">stop</span>();
+<p class="desc">
+Stop the timer.
+</p>
+
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">restart</span>();
+<p class="desc">
+Restart the timer, from the beginning of a new period.
+</p>
+
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">resume</span>();
+<p class="desc">
+Resume running a stopped timer.  A new period is not begun.
+</p>
+
+<h3>PWM Signal Output</h3>
+
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">pwm</span>(pin, duty);
+<p class="desc">
+Configure one of the timer's PWM pins.  "duty" is from 0 to 1023, where 0 makes the
+pin always LOW and 1023 makes the pin always HIGH.
+</p>
+
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">setPwmDuty</span>(pin, duty);
+<p class="desc">
+Set a new PWM, without reconfiguring the pin.  This is slightly faster than pwm(), but pwm()
+must be used at least once to configure the pin.
+</p>
+
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">disablePwm</span>(pin);
+<p class="desc">
+Stop using PWM on a pin.  The pin reverts to being controlled by digitalWrite().
+</p>
+
+<h3>Interrupt Function</h3>
+
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">attachInterrupt</span>(function);
+<p class="desc">
+Run a function each time the timer period finishes.  The function is run as an
+interrupt, so special care is needed to share any variables beteen the interrupt
+function and your main program.
+</p>
+
+<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">detachInterrupt</span>();
+<p class="desc">
+Disable the interrupt, so the function no longer runs.
+</p>
+
+
+
+
+
+<h2>Example Program</h2>
+
+<pre>#include&nbsp;&lt;<span style="color: #CC6600;">TimerOne</span>.h&gt;
+
+<span style="color: #7E7E7E;">//&nbsp;This&nbsp;example&nbsp;uses&nbsp;the&nbsp;timer&nbsp;interrupt&nbsp;to&nbsp;blink&nbsp;an&nbsp;LED</span>
+<span style="color: #7E7E7E;">//&nbsp;and&nbsp;also&nbsp;demonstrates&nbsp;how&nbsp;to&nbsp;share&nbsp;a&nbsp;variable&nbsp;between</span>
+<span style="color: #7E7E7E;">//&nbsp;the&nbsp;interrupt&nbsp;and&nbsp;the&nbsp;main&nbsp;program.</span>
+
+<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> led = LED_BUILTIN;  <span style="color: #7E7E7E;">// the pin with a LED</span>
+
+<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>(<span style="color: #CC6600;">void</span>)
+{
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(led, <span style="color: #006699;">OUTPUT</span>);
+&nbsp;&nbsp;<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">initialize</span>(150000);
+&nbsp;&nbsp;<span style="color: #CC6600;">Timer1</span>.<span style="color: #CC6600;">attachInterrupt</span>(blinkLED); <span style="color: #7E7E7E;">// blinkLED to run every 0.15 seconds</span>
+&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">begin</span>(9600);
+}
+
+
+<span style="color: #7E7E7E;">//&nbsp;The&nbsp;interrupt&nbsp;will&nbsp;blink&nbsp;the&nbsp;LED,&nbsp;and&nbsp;keep</span>
+<span style="color: #7E7E7E;">//&nbsp;track&nbsp;of&nbsp;how&nbsp;many&nbsp;times&nbsp;it&nbsp;has&nbsp;blinked.</span>
+<span style="color: #CC6600;">int</span> ledState = <span style="color: #006699;">LOW</span>;
+<span style="color: #CC6600;">volatile</span> <span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">long</span> blinkCount = 0; <span style="color: #7E7E7E;">// use volatile for shared variables</span>
+
+<span style="color: #CC6600;">void</span> blinkLED(<span style="color: #CC6600;">void</span>)
+{
+&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (ledState == <span style="color: #006699;">LOW</span>) {
+&nbsp;&nbsp;&nbsp;&nbsp;ledState&nbsp;=&nbsp;<span style="color: #006699;">HIGH</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;blinkCount&nbsp;=&nbsp;blinkCount&nbsp;+&nbsp;1;&nbsp;&nbsp;<span style="color: #7E7E7E;">// increase when LED turns on</span>
+&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> {
+&nbsp;&nbsp;&nbsp;&nbsp;ledState&nbsp;=&nbsp;<span style="color: #006699;">LOW</span>;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(led, ledState);
+}
+
+
+<span style="color: #7E7E7E;">//&nbsp;The&nbsp;main&nbsp;program&nbsp;will&nbsp;print&nbsp;the&nbsp;blink&nbsp;count</span>
+<span style="color: #7E7E7E;">//&nbsp;to&nbsp;the&nbsp;Arduino&nbsp;Serial&nbsp;Monitor</span>
+<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>loop</b></span>(<span style="color: #CC6600;">void</span>)
+{
+&nbsp;&nbsp;<span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">long</span> blinkCopy;  <span style="color: #7E7E7E;">// holds a copy of the blinkCount</span>
+
+&nbsp;&nbsp;<span style="color: #7E7E7E;">// to read a variable which the interrupt code writes, we</span>
+&nbsp;&nbsp;<span style="color: #7E7E7E;">// must temporarily disable interrupts, to be sure it will</span>
+&nbsp;&nbsp;<span style="color: #7E7E7E;">// not change while we are reading.  To minimize the time</span>
+&nbsp;&nbsp;<span style="color: #7E7E7E;">// with interrupts off, just quickly make a copy, and then</span>
+&nbsp;&nbsp;<span style="color: #7E7E7E;">// use the copy while allowing the interrupt to keep working.</span>
+&nbsp;&nbsp;<span style="color: #CC6600;">noInterrupts</span>();
+&nbsp;&nbsp;blinkCopy&nbsp;=&nbsp;blinkCount;
+&nbsp;&nbsp;<span style="color: #CC6600;">interrupts</span>();
+
+&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"blinkCount = "</span>);
+&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(blinkCopy);
+&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(100);
+}
+</pre>
+
+<h2>Interrupt Context Issues</h2>
+
+Special design is necessary to share data between interrupt code and the
+rest of your program.
+<p>
+Variables usually need to be "volatile" types.  Volatile tells the compiler to
+avoid optimizations that assume variable can not spontaneously change.  Because your
+function may change variables while your program is using them, the compiler needs
+this hint.  But volatile alone is often not enough.
+</p><p>
+When accessing shared variables, usually interrupts must be disabled.  Even with
+volatile, if the interrupt changes a multi-byte variable between a sequence of
+instructions, it can be read incorrectly.  If your data is multiple variables,
+such as an array and a count, usually interrupts need to be disabled for the entire
+sequence of your code which accesses the data.
+</p><p>
+
+
+</p><h2>Details</h2>
+
+New development on TimerOne occurs on this Github page:
+<p>
+<a href="https://github.com/PaulStoffregen/TimerOne">https://github.com/PaulStoffregen/TimerOne</a><br>
+<a href="https://github.com/PaulStoffregen/TimerThree">https://github.com/PaulStoffregen/TimerThree</a>
+</p><p>
+The original version of these libraries is at:
+</p><p>
+<a href="http://arduino.cc/playground/Code/Timer1">Timer1 page</a>.
+
+
+</p></td></tr></tbody></table>
+<div id="goog_qs_tidbit_box" class="notranslate goog_qs-slideup"><div id="goog_qs-wrapper"><div id="goog_qs-box-toggle" title="&#26368;&#23567;&#21270;" style="background-image: url(chrome-extension://okanipcmceoeemlbjnmnbdibhgpbllgc/images/minimize.png);"></div><div id="goog_qs-box-help" title="&#12504;&#12523;&#12503;&#12392;&#12458;&#12503;&#12471;&#12519;&#12531;&#12398;&#12506;&#12540;&#12472;&#12434;&#34920;&#31034;" style="background-image: url(chrome-extension://okanipcmceoeemlbjnmnbdibhgpbllgc/images/help.png);"></div><div id="goog_qs-box-info" style="background-image: url(chrome-extension://okanipcmceoeemlbjnmnbdibhgpbllgc/images/icon16x16.png);"><span class="goog_qs-query"><span class="goog_qs-nowrap">t<img>imer1</span> <span class="goog_qs-nowrap">a<img>rudino</span> <span class="goog_qs-nowrap">m<img>ega</span></span> <span class="goog_qs-nowrap">&#12395;<img>&#19968;&#33268;&#12377;&#12427;&#31623;&#25152;</span></div><div id="goog_qs-box-tidbits"><div class="goog_qs-box-tidbit" title="&#12463;&#12522;&#12483;&#12463;&#12375;&#12390;&#12506;&#12540;&#12472;&#20869;&#12398;&#12371;&#12398;&#12486;&#12461;&#12473;&#12488;&#12398;&#31623;&#25152;&#12434;&#34920;&#31034;"><em><span class="goog_qs-nowrap">A<img>rduino</span> <span class="goog_qs-nowrap">M<img>ega</span></em>, <span class="goog_qs-nowrap">1<img>1,</span> <span class="goog_qs-nowrap">1<img>2,</span> <span class="goog_qs-nowrap">1<img>3,</span> <span class="goog_qs-nowrap">2<img>,</span> <span class="goog_qs-nowrap">3<img>,</span> <span class="goog_qs-nowrap">5<img>.</span> <span class="goog_qs-nowrap">W<img>iring-...</span> <span class="goog_qs-go">»</span></div><div class="goog_qs-box-tidbit" title="&#12463;&#12522;&#12483;&#12463;&#12375;&#12390;&#12506;&#12540;&#12472;&#20869;&#12398;&#12371;&#12398;&#12486;&#12461;&#12473;&#12488;&#12398;&#31623;&#25152;&#12434;&#34920;&#31034;"><span class="goog_qs-nowrap">T<img>he</span> <em><span class="goog_qs-nowrap">t<img>imer</span></em> <span class="goog_qs-nowrap">i<img>s</span> <span class="goog_qs-nowrap">c<img>onfigured</span> <span class="goog_qs-nowrap">t<img>o</span> <span class="goog_qs-nowrap">r<img>epetitively</span> <span class="goog_qs-nowrap">m<img>easure</span> a <span class="goog_qs-nowrap">p<img>eriod</span> <span class="goog_qs-nowrap">o<img>f</span> <span class="goog_qs-nowrap">t<img>ime,</span> <span class="goog_qs-nowrap">i<img>n</span> <span class="goog_qs-nowrap">m<img>icroseconds.</span> <span class="goog_qs-go">»</span></div><div class="goog_qs-box-tidbit" title="&#12463;&#12522;&#12483;&#12463;&#12375;&#12390;&#12506;&#12540;&#12472;&#20869;&#12398;&#12371;&#12398;&#12486;&#12461;&#12473;&#12488;&#12398;&#31623;&#25152;&#12434;&#34920;&#31034;"><span class="goog_qs-nowrap">B<img>egin</span> <span class="goog_qs-nowrap">u<img>sing</span> <span class="goog_qs-nowrap">t<img>he</span> <em><span class="goog_qs-nowrap">t<img>imer</span></em>. <span class="goog_qs-nowrap">T<img>his</span> <span class="goog_qs-nowrap">f<img>unction</span> <span class="goog_qs-nowrap">m<img>ust</span> <span class="goog_qs-nowrap">b<img>e</span> <span class="goog_qs-nowrap">c<img>alled</span> <span class="goog_qs-nowrap">f<img>irst.</span> "microseconds" <span class="goog_qs-nowrap">i<img>s</span> <span class="goog_qs-nowrap">t<img>he</span> <span class="goog_qs-nowrap">p<img>eriod</span> <span class="goog_qs-nowrap">o<img>f</span> <span class="goog_qs-nowrap">t<img>ime</span> <span class="goog_qs-nowrap">t<img>he</span> <em><span class="goog_qs-nowrap">t<img>imer</span></em> <span class="goog_qs-nowrap">t<img>akes.</span> <em><span class="goog_qs-nowrap">T<img>imer1</span></em>. <span class="goog_qs-go">»</span></div></div><div id="goog_qs-box-bottom"><div class="goog_qs-more-matches" id="goog_qs-box-more-tidbits"><span class="goog_qs-nowrap">&#12381;<img>&#12398;&#20182;&#12398;&#19968;&#33268;&#12377;&#12427;&#31623;&#25152;</span> <span class="goog_qs-go">»</span></div><div class="goog_qs-more-matches" id="goog_qs-box-fewer-tidbits" style="display:none"><span class="goog_qs-go">«</span>  <span class="goog_qs-nowrap">&#19968;<img>&#33268;&#12377;&#12427;&#32080;&#26524;&#12434;&#38560;&#12377;</span></div><div id="goog_qs-box-feedback-link"><span class="goog_qs-nowrap">F<img>eedback</span></div> <div id="goog_qs-box-new-bug"><span class="goog_qs-nowrap">B<img>ug</span></div></div><div style="clear:both"></div></div></div></body></html>
