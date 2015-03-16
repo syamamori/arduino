@@ -52,7 +52,7 @@ int calcPID(int tar, int now)
   out += 300 * now;
   out = out >> 3;
   trueout = constrain(out, -1023, 1023);
-  if(abs(trueout)==50) trueout=0;
+  if(abs(trueout)<100) trueout=0;
   antiWR = out - trueout;
   return trueout;
 }
