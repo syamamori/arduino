@@ -40,7 +40,7 @@ Encoder myEnc2(ENC2_A, ENC2_B);
 
 
 //photo sensors
-int sen[8] = {3,2,4,5,11,9,10,12};
+int sen[8] = {3, 2, 4, 5, 11, 9, 10, 12};
 int data[8] = {0};
 int pdata[8] = {0};
 
@@ -59,14 +59,14 @@ int calcPID(int tar, int now)
   out += 300 * now;
   out = out >> 3;
   trueout = constrain(out, -1023, 1023);
-  if(abs(trueout)<100) trueout=0;
+  if (abs(trueout) < 100) trueout = 0;
   antiWR = out - trueout;
   return trueout;
 }
 
 void doEncoderCounter(void) {
   long encA, encB;
-  int outA,outB;
+  int outA, outB;
   int val;
   digitalWrite(13, HIGH);
   encA = myEnc1.read();
@@ -77,10 +77,10 @@ void doEncoderCounter(void) {
   motorMoveA(outA);
   outB = calcPID(tarvB, encB);
   motorMoveB( outB );
-  for(int i=0;i<8;i++){
+  for (int i = 0; i < 8; i++) {
     val = analogRead(sen[i]);
     //pdata[i] = (63*pdata[i] + val)>>6;
-    data[i] = (3*data[i] + val)>>2;
+    data[i] = (3 * data[i] + val) >> 2;
   }
   digitalWrite(13, LOW);
 }
@@ -89,12 +89,12 @@ void motorMoveA(int velo)
 {
   if (velo < 0) {
     Timer1.setPwmDuty(dirA, 0);
-//    digitalWrite(dirA, LOW);
+    //    digitalWrite(dirA, LOW);
     digitalWrite(blaA, LOW);
     velo *= -1;
   } else if (velo > 0) {
     Timer1.setPwmDuty(dirA, 1023);
-//    digitalWrite(dirA, HIGH);
+    //    digitalWrite(dirA, HIGH);
     digitalWrite(blaA, LOW);
   } else {
     digitalWrite(blaA, HIGH);
@@ -105,7 +105,7 @@ void motorMoveB( int velo)
 {
   if (velo < 0) {
     Timer1.setPwmDuty(dirB, 0);
-//    digitalWrite(dirB, LOW);
+    //    digitalWrite(dirB, LOW);
     digitalWrite(blaB, LOW);
     velo *= -1;
   } else if (velo > 0) {
@@ -118,12 +118,12 @@ void motorMoveB( int velo)
   Timer1.setPwmDuty(speB, velo);
 }
 void setup() {
-  pinMode(dirA,OUTPUT);
-  pinMode(dirB,OUTPUT);
-  pinMode(speA,OUTPUT);
-  pinMode(speB,OUTPUT);
-  pinMode(blaA,OUTPUT);
-  pinMode(blaB,OUTPUT);
+  pinMode(dirA, OUTPUT);
+  pinMode(dirB, OUTPUT);
+  pinMode(speA, OUTPUT);
+  pinMode(speB, OUTPUT);
+  pinMode(blaA, OUTPUT);
+  pinMode(blaB, OUTPUT);
   myEnc1.write(0);
   myEnc2.write(0);
   Serial.begin(115200);
@@ -135,49 +135,63 @@ void setup() {
   Timer1.pwm(dirA, 0);
   Timer1.pwm(dirB, 0);
 }
-int state(void){
+int state(void) {
   int b = 0;
-  for(int i=0;i<8;i++){
-    if( data[i] > LIMTE){
-      b += (1<<i);
+  for (int i = 0; i < 8; i++) {
+    if ( data[i] > LIMTE) {
+      b += (1 << i);
     }
   }
   Serial.print("state");
   Serial.println(b);
   return b;
 }
+int trac(int a)
+{
+  int t = 0;
+  for (int i = 0; i < 8; i++) {
+    t += a % 2;
+    a = a >> 1;
+  }
+  return t;
+}
 void loop() {
-   switch(state()){
-     case 0:
-     case 17:
-     case 136:
-     tarvA = -10;
-     tarvB = -10;     
-     break;
-     case 1:
-     case 3:
-     case 19:
-     case 128:
-     case 0xC0:
-     case 200:
-     tarvB += 3;
-     break;
-     case 8:
-     case 12:
-     case 16:
-     case 48:
-     case 49:
-     case 140:
-     tarvA += 3;
-     break;
-     case 240:
-     tarvA = -8;
-     tarvB = -10;
-     break;
-     default:
-     tarvA = 10;
-     tarvB = 10;
-     break;
-   }  
-   delay (100);
+  int mA = 0, mB = 0;
+  int s = 0;
+  s = state();
+  if (s == 0) {
+    mA = -8;
+    mB = -8;
+  } else {
+    if (trac(s >> 4) > 2) {
+      mA = -8;
+      mB = -5;
+    } else if(trac(s&0x0f)>2) {
+      mA = 8;
+      mB = 5;
+    }else{
+      for (int i = 0; i < 8; i++) {
+        if (s & (0x01 << i)) {
+          switch (i) {
+            case 0:
+            case 1:
+            case 6:
+            case 7:
+              mB = 8;
+              mA = -8;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+              mA = 8;
+              mB = -8;
+            break;
+          }
+        }
+      }
+    }
+  }
+  tarvA = mA;
+  tarvB = mB;
+  delay (100);
 }
