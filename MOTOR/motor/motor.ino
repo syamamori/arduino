@@ -18,7 +18,7 @@ void loop(){
   // モーターB: フルスピード正転
   digitalWrite(13, HIGH);
   digitalWrite(8, LOW);
-  analogWrite(11, 255);
+  analogWrite(11, 120);
   // 2秒間上記設定で回転
 //  delay(2000);
 //
